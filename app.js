@@ -46,70 +46,25 @@ if (gallery && Array.isArray(surpriseContent.gallery)) {
     if (image && item.position) {
       image.style.objectPosition = item.position;
     }
+    if (image) {
+      image.loading = "eager";
+      image.decoding = "async";
+      if (index === 0) {
+        image.fetchPriority = "high";
+      }
+      image.addEventListener("error", () => {
+        card.classList.add("memory-card-missing-image");
+        image.remove();
+      });
+    }
 
     gallery.appendChild(card);
   });
 }
 
-const songPlayer = document.querySelector("[data-song-player]");
-const restartSongButton = document.querySelector("[data-restart-song]");
-
-const syncMusicChip = (message) => {
-  if (!restartSongButton) {
-    return;
-  }
-
-  const actionLabel = restartSongButton.querySelector(".music-chip-action");
-  if (actionLabel && message) {
-    actionLabel.textContent = message;
-  }
-};
-
-if (songPlayer) {
-  songPlayer.addEventListener("error", () => {
-    syncMusicChip("Missing local MP3 file");
-  });
-}
-
-const startSong = async () => {
-  if (!songPlayer) {
-    return;
-  }
-
-  if (!songPlayer.querySelector("source")?.src) {
-    syncMusicChip("Add the local MP3 file");
-    return;
-  }
-
-  songPlayer.currentTime = 0;
-
-  try {
-    await songPlayer.play();
-    syncMusicChip("Replay song");
-  }
-  catch {
-    syncMusicChip("Press Enter if needed");
-  }
-};
-
-window.addEventListener("load", () => {
-  restartSongButton?.focus({ preventScroll: true });
-  window.setTimeout(startSong, 350);
-});
-
-if (restartSongButton) {
-  restartSongButton.addEventListener("click", startSong);
-}
-
-const retrySongOnFirstInteraction = () => {
-  void startSong();
-};
-
-document.addEventListener("pointerdown", retrySongOnFirstInteraction, { once: true });
-document.addEventListener("keydown", retrySongOnFirstInteraction, { once: true });
-
 const floatingGarden = document.querySelector("[data-floating-garden]");
 const petalRain = document.querySelector("[data-petal-rain]");
+const isSmallScreen = window.matchMedia("(max-width: 720px)").matches;
 
 const makeFloaty = (type, count) => {
   if (!floatingGarden) {
@@ -148,7 +103,7 @@ const makePetals = (count) => {
   }
 };
 
-makeFloaty("heart", 28);
-makeFloaty("blossom", 20);
-makeFloaty("sparkle", 18);
-makePetals(28);
+makeFloaty("heart", isSmallScreen ? 14 : 28);
+makeFloaty("blossom", isSmallScreen ? 10 : 20);
+makeFloaty("sparkle", isSmallScreen ? 8 : 18);
+makePetals(isSmallScreen ? 12 : 28);

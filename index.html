@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>For You, Love</title>
   <meta
     name="description"
-    content="A romantic surprise page with photo placeholders, a love note, and animated hearts and flowers."
+    content="A romantic surprise page with favorite photos, a love note, and animated hearts and flowers."
   >
+  <meta name="theme-color" content="#fff6f3">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -22,9 +23,6 @@
   <div class="texture"></div>
   <div class="floating-garden" aria-hidden="true" data-floating-garden></div>
   <div class="petal-rain" aria-hidden="true" data-petal-rain></div>
-  <audio data-song-player preload="auto">
-    <source src="assets/audio/since-u-been-gone.mp3" type="audio/mpeg">
-  </audio>
 
   <main class="page-shell">
     <section class="hero">
@@ -49,7 +47,7 @@
       </div>
     </section>
 
-    <section class="gallery-section">
+    <section class="gallery-section" id="gallery">
       <div class="section-heading">
         <p class="section-kicker">A few of my favorite moments</p>
         <h2>Little pieces of us that I never want to forget</h2>
@@ -69,12 +67,6 @@
       </div>
     </section>
   </main>
-
-  <button class="music-chip" type="button" data-restart-song autofocus>
-    <span class="music-chip-label">Now playing</span>
-    <span class="music-chip-title">Kelly Clarkson - Since U Been Gone (Official Video)</span>
-    <span class="music-chip-action">Replay song</span>
-  </button>
 
   <script src="content.js"></script>
   <script src="app.js"></script>
