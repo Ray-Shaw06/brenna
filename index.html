@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For You, Love</title>
+  <meta
+    name="description"
+    content="A romantic surprise page with photo placeholders, a love note, and animated hearts and flowers."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Manrope:wght@400;500;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="background-glow background-glow-left"></div>
+  <div class="background-glow background-glow-right"></div>
+  <div class="texture"></div>
+  <div class="floating-garden" aria-hidden="true" data-floating-garden></div>
+  <div class="petal-rain" aria-hidden="true" data-petal-rain></div>
+  <audio data-song-player preload="auto">
+    <source src="assets/audio/since-u-been-gone.mp3" type="audio/mpeg">
+  </audio>
+
+  <main class="page-shell">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">For my girl, from Ray</p>
+        <h1 class="hero-title">
+          <span class="hero-title-script">Thank you</span>
+          <span class="hero-title-main">for being you</span>
+        </h1>
+        <p class="hero-lead" data-intro></p>
+        <div class="highlight-row" data-highlights></div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-card-top">
+          <span class="wax-seal"></span>
+          <span class="paper-ribbon">From Ray, with all my heart</span>
+        </div>
+        <h2 class="note-title">This is for you</h2>
+        <p class="love-note" data-message></p>
+        <p class="signature" data-signature></p>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="section-heading">
+        <p class="section-kicker">A few of my favorite moments</p>
+        <h2>Little pieces of us that I never want to forget</h2>
+      </div>
+      <div class="gallery-grid" data-gallery></div>
+    </section>
+
+    <section class="closing-banner">
+      <div class="closing-copy">
+        <p class="section-kicker">From the bottom of my heart</p>
+        <h2 data-closing-title></h2>
+        <p data-closing-text></p>
+      </div>
+      <div class="closing-frame">
+        <div class="closing-heart"></div>
+        <p>You make life feel warmer, calmer, and a whole lot better just by being in it.</p>
+      </div>
+    </section>
+  </main>
+
+  <button class="music-chip" type="button" data-restart-song autofocus>
+    <span class="music-chip-label">Now playing</span>
+    <span class="music-chip-title">Kelly Clarkson - Since U Been Gone (Official Video)</span>
+    <span class="music-chip-action">Replay song</span>
+  </button>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
